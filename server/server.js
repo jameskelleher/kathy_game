@@ -98,6 +98,7 @@ class Player {
       this.x = t.dest_x;
       this.y = t.dest_y;
       this.x_frame = 0;
+      console.log(`Sending to coordinates ${t.dest_x}, ${t.dest_y}`)
 
       for (let k in this.keys) {
         this.keys[k] = 0;

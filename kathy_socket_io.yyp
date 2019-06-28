@@ -210,6 +210,25 @@
             }
         },
         {
+            "Key": "29a4418f-069b-41fd-8871-b97cc762966e",
+            "Value": {
+                "id": "6a0ac2ce-823f-49d2-b4e7-198d2997fb7a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "tilesets\/tileset0\/tileset0.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "2dbfd1aa-eddf-421f-b261-c9416d8772d9",
             "Value": {
                 "id": "b3189f2d-af6d-489b-9756-034618a30337",
@@ -343,6 +362,25 @@
             }
         },
         {
+            "Key": "59219937-aac9-412c-922f-cb0b3d08de26",
+            "Value": {
+                "id": "b211831a-d197-405b-8108-a350e0c74e71",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_terrain\/spr_terrain.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6aac2157-fe38-4671-bee1-9dbec69d4fce",
             "Value": {
                 "id": "ee0cba6b-43ba-49a8-8f3c-e18874d70841",
@@ -359,6 +397,25 @@
                 ],
                 "resourcePath": "scripts\/show_map_info\/show_map_info.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6ccd1e65-6f2b-46bb-8f2a-96ac252ad460",
+            "Value": {
+                "id": "91e790fa-9ba1-4515-8a07-085477d78e47",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/room_juice\/room_juice.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -718,7 +775,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "rooms\/room_2\/room_2.yy",
+                "resourcePath": "rooms\/room_club\/room_club.yy",
                 "resourceType": "GMRoom"
             }
         },

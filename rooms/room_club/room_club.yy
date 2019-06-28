@@ -1,13 +1,12 @@
 
 {
-    "name": "room_2",
+    "name": "room_club",
     "id": "cb9e74c8-cff4-47c1-b856-c5ff697de6ae",
     "creationCodeFile": "",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-        "1b30d151-8def-48d9-8177-b588dc0351fc",
         "82d02f4a-d00b-4c04-95d1-c7f4875f809e"
     ],
     "IsDnD": false,
@@ -52,7 +51,7 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-{"name": "inst_11BA1627","id": "1b30d151-8def-48d9-8177-b588dc0351fc","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_11BA1627","objId": "36b8f58c-3508-4358-b553-a4baa5192b27","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 234,"y": 133}
+
             ],
             "layers": [
 
@@ -70,7 +69,7 @@
             "id": "301cc76c-a872-4e28-a27a-012a2e7dcfe3",
             "animationFPS": 15,
             "animationSpeedType": "0",
-            "colour": { "Value": 4278190080 },
+            "colour": { "Value": 4288872960 },
             "depth": 200,
             "grid_x": 32,
             "grid_y": 32,
