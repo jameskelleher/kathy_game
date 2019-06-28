@@ -3,14 +3,13 @@ var eventName = "update_key";
 var key = argument0;
 var status = argument1;
 
-show_debug_message("key " + string(key) + " has status " + string(key_pressed[? key]));
-
 if (status == 1 and key_pressed[? key] == true) return;
 
 if (status == 1) key_pressed[? key] = true;
 else key_pressed[? key] = false;
 
-show_debug_message("jk sending data");
+show_debug_message("updating key " + string(key) + " to " + string(status));
+
 #region packet
 	var data = ds_map_create();
 		data[? "key"] = key;

@@ -1,4 +1,4 @@
-global.sprite_grid = ds_grid_create(0, 0);
+show_debug_message("client_created");
 
 key_pressed = ds_map_create()
 

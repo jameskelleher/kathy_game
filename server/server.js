@@ -6,7 +6,7 @@ const Facing = enums.facing;
 // create a server
 const server = require('http').createServer();
 const io = require('socket.io')(server);
-const port = os.Getenv("PORT");
+const port = 3333;
 
 
 // listen for incoming connections
@@ -17,6 +17,7 @@ server.listen(port, (err) => {
 
 // global data
 var players = [];  // all connected players will be stored here
+var transitions = []; // store the positions of the transition objects
 var clientId = 0;  // unique ID for every client
 const fps = 30;
 
@@ -25,6 +26,11 @@ class Player {
   constructor(data) {
     this.x = data.x;
     this.y = data.y;
+    this.socket = data.socket;
+    this.playerID = data.playerID;
+
+    // might need to change this later
+    this.room = 0;
 
     // initialize keys
     this.keys = {}
@@ -54,7 +60,8 @@ class Player {
       "x": this.x,
       "y": this.y,
       "spr_left": this.spr_left,
-      "spr_top": this.spr_top
+      "spr_top": this.spr_top,
+      "room": this.room,
     };
   }
 
@@ -65,6 +72,48 @@ class Player {
   replacer(key, value) {
     if (key == "socket") return undefined;
     else return value;
+  }
+
+  checkTransition(t) {
+    if (this.room != t.room) return undefined;
+
+    var xx = this.x + this.frame_size * 0.5;
+    var yy = this.y + this.frame_size * 0.666;
+
+    // console.log(`xx: "${xx}"`)
+    // console.log(`yy: "${yy}"`)
+    //
+    // console.log(`checking transition in room "${t.room}"`);
+    // console.log(`left bound: "${t.x}"`);
+    // console.log(`right bound: "${t.x + t.w}"`);
+    // console.log(`top bound: "${t.y}"`);
+    // console.log(`bottom bound: "${t.y + t.h}"`);
+
+    if ( t.x < xx
+        && xx < t.x + t.w
+        && t.y < yy
+        && yy < t.y + t.h) {
+      console.log(`Player "${this.playerID}" transition to "${t.dest_room}"`)
+      this.room = t.dest_room;
+      this.x = t.dest_x;
+      this.y = t.dest_y;
+      this.x_frame = 0;
+
+      for (let k in this.keys) {
+        this.keys[k] = 0;
+      }
+      return t.dest_room;
+    }
+
+    // console.log(`Player "${this.playerID}" does not transition`)
+    return undefined;
+  }
+
+  checkTransitions(t_array) {
+    for (let i = 0; i < t_array.length; i++) {
+        var room = this.checkTransition(t_array[i]);
+        if (room != undefined) return room;
+    }
   }
 
   updatePosition() {
@@ -99,28 +148,45 @@ class Player {
   }
 }
 
+class Transition {
+  constructor(data) {
+    this.x = data.x;
+    this.y = data.y;
+    this.w = data.w;
+    this.h = data.h;
+    this.room = data.room;
+    this.dest_room = data.dest_room;
+    this.dest_x = data.dest_x;
+    this.dest_y = data.dest_y;
+  }
+}
+
 io.on('connection', (client) => {
   var playerID = clientId++;
   var player;
 
-  console.log('player connected');
+  console.log(`Player "${playerID}" connected`);
 
   player = new Player({
     x: 100,
-    y: 100 * (playerID % 4)
+    y: 100 * (playerID % 4),
+    socket: client,
+    playerID: playerID,
   });
 
-  console.log("pushing");
   console.log(player.toString());
   // add to players list
   players.push(player);
 
+  if (transitions.length == 0) {
+    client.emit('collect_transitions', JSON.stringify({}));
+  }
+
+  console.log(JSON.stringify(players));
+
   client.on('update_key', (data) => {
     data = JSON.parse(data);
     player.keys[data.key] = data.status;
-
-    console.log('key: ' + data.key)
-    console.log('status: ' + data.status)
   });
 
   client.on('disconnect', () => {
@@ -131,14 +197,29 @@ io.on('connection', (client) => {
     console.log(`Player "${playerID}" disconnected`);
   });
 
+  client.on('send_transitions', (data) => {
+      transitions = [];
+      data = JSON.parse(data);
+      t_list = data.t;
+      t_list.forEach((item, index) => {
+        var t = new Transition(item);
+        transitions.push(t);
+      });
+      console.log(transitions);
+  });
+
 });
 
 setInterval(() => {
 
   if (players.length > 0) {
-    players.forEach((item, index) => {
-      item.updatePosition();
-    })
+    players.forEach((player, index) => {
+      player.updatePosition();
+      var room = player.checkTransitions(transitions);
+      if (room != undefined) {
+        player.socket.emit('change_room', JSON.stringify({'dest_room': room}));
+      }
+    });
     //TODO: don't send full player data
     io.emit('position_update', JSON.stringify(players));
   }
