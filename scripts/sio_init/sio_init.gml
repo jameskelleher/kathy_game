@@ -2,8 +2,12 @@ gml_pragma("global", "sio_init()");
 
 #region macros
 	//#macro IP "3.14.13.216"
-	#macro IP "localhost"
-	#macro PORT 3333
+	//#macro IP "localhost"
+	#macro IP "intense-sierra-25972.herokuapp.com"
+	
+	//#macro PORT 3333
+	//#macro PORT 5000
+	#macro PORT 80
 #endregion
 
 #region SocketIO
