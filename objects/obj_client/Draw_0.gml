@@ -15,5 +15,8 @@ for (var i = 0; i < num_sprites; i++) {
 	var spr_left = global.sprite_grid[# 2, i];
 	var spr_top = global.sprite_grid[# 3, i];
 	
-	draw_sprite_part(spr_yaeji, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	draw_sprite_part(spr_body_vanilla, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	draw_sprite_part(spr_outfit_orange, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	draw_sprite_part(spr_hair_greenbob, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	
 }
