@@ -18,5 +18,10 @@ for (var i = 0; i < num_sprites; i++) {
 	draw_sprite_part(spr_body_vanilla, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
 	draw_sprite_part(spr_outfit_orange, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
 	draw_sprite_part(spr_hair_greenbob, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+
+	
+	//draw_sprite_part_ext(spr_body_vanilla, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy, 3, 3, c_white, 1);
+	//draw_sprite_part_ext(spr_outfit_orange, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy, 2, 2, c_white, 1);
+	//draw_sprite_part_ext(spr_hair_greenbob, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy, 3, 3, c_white, 1);
 	
 }
