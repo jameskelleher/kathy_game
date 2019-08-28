@@ -23,5 +23,6 @@ gml_pragma("global", "sio_init()");
 	sio_addEvent("position_update");
 	sio_addEvent("change_room");
 	sio_addEvent("collect_transitions");
+	sio_addEvent("send_character_details");
 	//sio_addEvent("pong");
 #endregion

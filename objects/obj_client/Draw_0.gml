@@ -15,9 +15,18 @@ for (var i = 0; i < num_sprites; i++) {
 	var spr_left = global.sprite_grid[# 2, i];
 	var spr_top = global.sprite_grid[# 3, i];
 	
-	draw_sprite_part(spr_body_vanilla, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
-	draw_sprite_part(spr_outfit_orange, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
-	draw_sprite_part(spr_hair_greenbob, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	var spr_body = global.sprite_grid[# 5, i];
+	var spr_outfit = global.sprite_grid[# 6, i];
+	var spr_hair = global.sprite_grid[# 7, i];
+	
+	draw_sprite_part(spr_body, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	draw_sprite_part(spr_outfit, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	draw_sprite_part(spr_hair, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+
+
+	//draw_sprite_part(spr_body, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	//draw_sprite_part(spr_outfit, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
+	//draw_sprite_part(spr_hair, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy);
 
 	
 	//draw_sprite_part_ext(spr_body_vanilla, 0, spr_left, spr_top, player_frame_size, player_frame_size, xx, yy, 3, 3, c_white, 1);

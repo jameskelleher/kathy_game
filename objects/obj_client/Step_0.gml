@@ -1,7 +1,3 @@
-if (room == room_welcome) {
-	if keyboard_check_pressed(vk_enter) room_goto(room_start);
-}
-
 if keyboard_check_pressed(vk_left) update_key(vk_left, 1);
 if keyboard_check_released(vk_left) update_key(vk_left, 0);
 
