@@ -1,0 +1,1 @@
+draw_sprite_ext(spr_outfit_white, 0, x, y, 1, 1, 1, c_orange, 1);

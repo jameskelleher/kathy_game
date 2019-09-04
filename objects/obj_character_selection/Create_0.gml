@@ -20,6 +20,7 @@ ds_list_add(body_list,
 	spr_body_ivory,
 	spr_body_vanilla)
 	
+randomize();
 hair_ix = irandom(ds_list_size(hair_list) - 1)
 outfit_ix = irandom(ds_list_size(outfit_list) - 1)
 body_ix = irandom(ds_list_size(body_list) - 1)
